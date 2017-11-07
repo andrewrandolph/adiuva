@@ -1,7 +1,7 @@
 {
-  "name": "Adivua",
+  "name": "pluralsight-redux-starter",
   "version": "1.0.0",
-  "description": "A service provideing emergency contacts when needed",
+  "description": "Starter kit for React and Redux Pluralsight course by Cory House",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
@@ -11,7 +11,7 @@
     "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch"
   },
-  "author": "Corey Jordan-Ruteledge / Andrew Randolph",
+  "author": "Cory House",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "6.8.0",
@@ -68,6 +68,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/andrewrandolph/adiuva"
+    "url": "https://github.com/coryhouse/pluralsight-redux-starter"
   }
 }
