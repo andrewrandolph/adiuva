@@ -1,1 +1,1 @@
-export const CREATE_COURSE = 'CREATE_COURSE';
+export const ADD_AGENCY = 'ADD_AGENCY';

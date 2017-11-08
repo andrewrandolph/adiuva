@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as courseActions from '../../actions/courseActions';
 
-class CoursesPage extends React.Component {
+class AgencyPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -27,7 +28,7 @@ class CoursesPage extends React.Component {
   }
 
   onClickSave() {
-    this.props.actions.createCourse(this.state.course);
+    this.props.actions.saveAgency(this.state.course);
   }
 
   courseRow(course, index) {
@@ -37,9 +38,9 @@ class CoursesPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Courses</h1>
-        {this.props.courses.map(this.courseRow)}
-        <h2>Add Course</h2>
+        <h1>Agencies</h1>
+        {this.props.agencies.map(this.courseRow)}
+        <h2>Add Emergency Agency</h2>
         <input
           type="text"
           onChange={this.onTitleChange}
@@ -55,14 +56,18 @@ class CoursesPage extends React.Component {
   }
 }
 
-CoursesPage.propTypes = {
+AgencyPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  courses: PropTypes.array.isRequired
+  agencies: PropTypes.array.isRequired
+};
+
+AgencyPage.defaultProps = {
+  agencies: []
 };
 
 function mapStateToProps(state, ownProps) {
   return {
-    courses: state.courses
+    agencies: state.courses
   };
 }
 
@@ -72,4 +77,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AgencyPage);
