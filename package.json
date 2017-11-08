@@ -1,7 +1,7 @@
 {
-  "name": "pluralsight-redux-starter",
+  "name": "Adiuva",
   "version": "1.0.0",
-  "description": "Starter kit for React and Redux Pluralsight course by Cory House",
+  "description": "Mini app for giving a list of emergency services available within a given distance",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
@@ -68,6 +68,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/coryhouse/pluralsight-redux-starter"
+    "url": "https://github.com/andrewrandolph/adiuva"
   }
 }
