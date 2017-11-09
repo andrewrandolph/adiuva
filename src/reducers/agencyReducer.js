@@ -7,6 +7,6 @@ export default function courseReducer(state = [], action) {
     case types.DELETE_AGENCY:
       return [...state].filter(agency => agency.title != action.agencyTitle);
     default:
-      return state;
+      return state; // fdfsfdfdfdsfds
   }
 }
