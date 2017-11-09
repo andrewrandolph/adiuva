@@ -8,7 +8,7 @@ export class Container extends React.Component {
       height: "50%"
     };
     if (!this.props.loaded) {
-      return <div>Loading...</div>;
+      return <div>Loading.</div>;
     }
     return (
       <div>
