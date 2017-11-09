@@ -1,19 +1,22 @@
 import React from 'react';
-import {GoogleApiWrapper} from 'google-maps-react';
-import Map from '../components/Map';
+import {GoogleApiWrapper, Map} from 'google-maps-react';
 
 export class Container extends React.Component {
   render() {
     const style = {
-      width: "10%",
-      height: "20%"
+      width: "60%",
+      height: "50%"
     };
     if (!this.props.loaded) {
       return <div>Loading...</div>;
     }
     return (
-      <div style={style}>
-        <Map google={this.props.google} />
+      <div>
+        <Map style={style} google={this.props.google} initialCenter={{
+            lat: 40.854885,
+            lng: -88.081807
+          }}
+          zoom={15}/>
       </div>
     );
   }
