@@ -9,7 +9,7 @@ class AgencyPage extends React.Component {
     super(props, context);
 
     this.state = {
-      course:
+      agency:
         {
           title: ""
         }
@@ -17,34 +17,47 @@ class AgencyPage extends React.Component {
 
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
+    this.onClickDelete = this.onClickDelete.bind(this);
+    this.agencyRow = this.agencyRow.bind(this);
   }
 
   onTitleChange(event) {
-    const course = this.state.course;
-    course.title = event.target.value;
+    const agency = this.state.agency;
+    agency.title = event.target.value;
     this.setState({
-      course: course
+      agency: agency
     });
   }
 
   onClickSave() {
-    this.props.actions.saveAgency(this.state.course);
+    this.state.agency.title != '' ? this.props.actions.saveAgency(this.state.agency) : alert("Enter a place");
+    // Making api call to google maps
+
   }
 
-  courseRow(course, index) {
-    return <div key={index}>{course.title}</div>;
+  onClickDelete(agencyTitle) {
+    this.props.actions.deleteAgency(agencyTitle);
+  }
+
+  agencyRow(agency, index) {
+    return (
+      <div key={index}>
+        <span>{agency.title}</span>
+        <button onClick={() => this.onClickDelete(agency.title)} className="btn btn-danger">Delete</button>
+      </div>
+    );
   }
 
   render() {
     return (
       <div>
         <h1>Agencies</h1>
-        {this.props.agencies.map(this.courseRow)}
+        {this.props.agencies.map(this.agencyRow)}
         <h2>Add Emergency Agency</h2>
         <input
           type="text"
           onChange={this.onTitleChange}
-          value={this.state.course.title}
+          value={this.state.agency.title}
         />
         <input
           type="submit"
@@ -67,7 +80,7 @@ AgencyPage.defaultProps = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    agencies: state.courses
+    agencies: state.agencies
   };
 }
 

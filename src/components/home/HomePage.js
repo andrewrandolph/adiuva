@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Mapper from '../Mapper';
+import Mapper from '../../containers/Mapper';
 
 class HomePage extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class HomePage extends React.Component {
           <h1>Adiuva</h1>
           <p>A way to add in emergency contacts</p>
         </div>
-        <Mapper className="locationMap"/>
+        <Mapper />
       </div>
     );
   }
