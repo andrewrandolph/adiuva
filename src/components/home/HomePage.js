@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import Mapper from '../../containers/Mapper';
 
 class HomePage extends React.Component {
+
   render() {
     return (
       <div>
