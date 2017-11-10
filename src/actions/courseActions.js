@@ -5,5 +5,5 @@ export function saveAgency(agency) {
 }
 
 export function deleteAgency(agencyTitle) {
-  return {type: types.DELETE_AGENCY, agencyTitle, fakeParam: 'test'};
+  return {type: types.DELETE_AGENCY, agencyTitle};
 }
