@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as courseActions from '../../actions/courseActions';
-import * as mapActions from '../../actions/mapActions';
 
 class AgencyPage extends React.Component {
   constructor(props, context) {
