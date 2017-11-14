@@ -21,16 +21,8 @@ export class MapContainer extends React.Component {
   fetchPlaces(mapProps, map) {
     const {google, initialCenter: { lat, lng }} = mapProps;
     const {agencies} = this.props;
-    const resultIds = [];
     const service = new google.maps.places.PlacesService(map);
-    const promise = new Promise((resolve, reject) => {
-      agencies.map(agency => service.nearbySearch({location: {lat, lng}, radius: 16000}, (results) => resolve(results)));
-    });
-    promise.then(results => {
-      results.map(result => resultIds.push(result.place_id));
-      console.log(resultIds);
-    });
-    // agencies.map(agency => service.nearbySearch({location: {lat, lng}, radius: 100000, keyword:agency.title}, (results) => results.map(result => service.getDetails({placeId: result.place_id}, (result) => this.setState({placeIds: this.state.placeIds.concat(result)})))));
+    agencies.map(agency => service.nearbySearch({location: {lat, lng}, radius: 10000, keyword:agency.title}, (results) => results.map(result => service.getDetails({placeId: result.place_id}, (result, response) => this.setState({placeIds: this.state.placeIds.concat(result)})))));
   }
 
   markerClick(props, marker, e) {
@@ -49,7 +41,7 @@ export class MapContainer extends React.Component {
     return (
       <Map
         google={this.props.google}
-        zoom={12}
+        zoom={9}
         onReady={this.fetchPlaces}
         style={style}
         initialCenter={{
@@ -91,5 +83,5 @@ MapContainer.propTypes = {
 };
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo')
+  apiKey: ('AIzaSyC_UMxze-Yn_OlymlTcuN0cfG0fZh3mVck')
 })(MapContainer);
