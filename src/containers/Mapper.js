@@ -43,12 +43,12 @@ export class MapContainer extends React.Component {
       <div>
         <Map
           google={this.props.google}
-          zoom={9}
+          zoom={11}
           style={styles}
           onReady={this.fetchPlaces}
           initialCenter={{
-            lat: 40.854885,
-            lng: -88.081807
+            lat: 43.091582,
+            lng: -70.7898477
           }}
         >
         {this.state.placeIds.map((place, index) => {
@@ -75,7 +75,7 @@ export class MapContainer extends React.Component {
           </div>
         </InfoWindow>
         </Map>
-        <MapList items={this.state.placeIds} />
+        <MapList className={this.state.placeIds ? 'showItems' : 'hideItems'} items={this.state.placeIds} />
       </div>
     );
   }
