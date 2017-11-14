@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import {Marker} from 'google-maps-react';
 
 class Listing extends React.Component {
-  componentDidMount() {
-    
+  constructor(props) {
+    super(props);
   }
+
   render() {
+    console.log(this.props);
     return (
-      <Marker
-        title={'The marker`s title will appear as a tooltip.'}
-        name={'SOMA'}
-        position={{lat: 37.778519, lng: -122.405640}} />
+      <div>
+        This is a list item
+      </div>
     );
   }
 }
