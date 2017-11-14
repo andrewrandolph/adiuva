@@ -1,0 +1,145 @@
+/***** Fonts ****/
+
+@font-face {
+  font-family: 'Heiti TC';/* IE9 Compat Modes */
+  src: url('fonts/New Song (Ming) Typeface (Heiti TC Light) Font-Simplified Chinese.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+/***** Global Breakpoints *****/
+
+$mobile: 50px;
+$tablet: 768px;
+$desktop: 1020px;
+
+/***** Default Element Styling ****/
+
+body {
+  background: rgb(235, 235, 235);
+
+  div#app {
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #4d4d4d;
+    min-width: 300px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 5%;
+
+    div.jumbotron{
+      h1.appVersion {
+        background-color: #9D0320;
+        color: #fff;
+        font-family: georgia;
+        font-style: italic;
+        font-size: 1em;
+        font-weight: normal;
+        padding: 5px;
+      }
+    }
+
+    div {
+      nav {
+        background: url(../img/logoAdiuva.svg) no-repeat;
+        background-size: 40%;
+        min-height: 15px;
+        padding-top: 13.3%;
+
+        a {
+          font-family: 'Heiti TC';
+          text-decoration: none;
+          -moz-transition: all 0.5s ease;
+          -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+        }
+      }
+    }
+  }
+
+  a.active {
+    color: orange;
+  }
+
+/***** Mobile Styling *****/
+
+  @media(min-width: $mobile) {
+    div#app {
+      .burgerMenu {
+        background: blue;
+        cursor: pointer;
+        width: 75px;
+        height: 55px;
+        position:absolute;
+        right: 6%;
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+
+          a {
+            display: none;
+          }
+        }
+
+      nav.navIsExpanded a {
+        color: #8E0000;
+        display: block;
+        font-size: 1em;
+        margin: 18px 0 2% 1%;
+        }
+      }
+    }
+
+/***** Desktop Styling *****/
+
+  @media(min-width: $tablet) {
+    div#app {
+      .burgerMenu {
+        background: blue;
+        cursor: pointer;
+        width: 120px;
+        height: 90px;
+        position: absolute;
+        right: 6%;
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      nav.navIsExpanded a {
+        color: #8E0000;
+        font-size: 1.5em;
+        margin: 20px 0 4% 1.7%;
+      }
+
+    }
+  }
+
+  @media(min-width: $desktop) {
+    div#app div.container-fluid div { // increase specificity
+      .burgerMenu {
+        display: none;
+      }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row;
+
+        a {
+          color: #8E0000;
+          font-size: 1.7em;
+          margin: 0 0 0 4%;
+          display: block;
+        }
+      }
+    }
+  }
+/*
+  div#app div div div{
+      display: flex;
+      justify-content: center;
+  } */
+}

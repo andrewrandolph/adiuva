@@ -29,7 +29,6 @@ This will run the automated build process, start up a webserver, and open the ap
 | **Dependency** | **Use** |
 |----------|-------|
 |babel-polyfill | Polyfill for Babel features that cannot be transpiled |
-|bootstrap|CSS Framework|
 |jquery|Only used to support toastr|
 |react|React library |
 |react-dom|React library for DOM rendering |

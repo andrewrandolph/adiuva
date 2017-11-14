@@ -11,10 +11,6 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <div className="jumbotron">
-          <h1>Adiuva</h1>
-          <p>A way to add in emergency contacts</p>
-        </div>
         <Mapper agencies={this.props.agencies}/>
       </div>
     );
