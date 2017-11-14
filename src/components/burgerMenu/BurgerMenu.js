@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import BurgerMenuChild from './BurgerMenuChild';
 import { Link, IndexLink } from 'react-router';
 
 class BurgerMenu extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.refs);
     this.state = {
       menuIsEnabled: this.props.menuIsEnabled
     };
@@ -21,14 +23,13 @@ class BurgerMenu extends React.Component {
     );
   }
 }
-BurgerMenu.defaultProps = { menuIsEnabled: false };
-class BurgerMenuChild extends React.Component {
-  toggleClassName() {
-    this.props.onClick();
-  }
-  render() {
-    return <div className={this.props.className} onClick={() => this.toggleClassName()} > {this.props.children} </div>;
-  }
-}
+
+BurgerMenu.propTypes = {
+  menuIsEnabled: false
+};
+
+BurgerMenu.defaultProps = {
+  menuIsEnabled: false
+};
 
 export default BurgerMenu;
