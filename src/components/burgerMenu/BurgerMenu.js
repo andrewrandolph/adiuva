@@ -6,7 +6,6 @@ import { Link, IndexLink } from 'react-router';
 class BurgerMenu extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.refs);
     this.state = {
       menuIsEnabled: this.props.menuIsEnabled
     };
