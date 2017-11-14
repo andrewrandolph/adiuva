@@ -1,5 +1,5 @@
 import React from 'react';
-import Listing from '../components/Listing';
+import MapList from '../components/MapList';
 import PropTypes from 'prop-types';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 
@@ -39,40 +39,43 @@ export class MapContainer extends React.Component {
       height: '600px'
     };
     return (
-      <Map
-        google={this.props.google}
-        zoom={9}
-        onReady={this.fetchPlaces}
-        style={style}
-        initialCenter={{
-          lat: 40.854885,
-          lng: -88.081807
-        }}
-      >
-      {this.state.placeIds.map((place, index) => {
-        return (
-          <Marker
-            key={index}
-            onClick={this.markerClick}
-            title={place && place.name}
-            number={place && place.international_phone_number}
-            address={place && place.formatted_address}
-            name={place && place.name}
-            position={{lat: place && place.geometry.location.lat(), lng: place && place.geometry.location.lng()}}
-           />
-        );
-      })}
+      <div>
+        <Map
+          google={this.props.google}
+          zoom={9}
+          onReady={this.fetchPlaces}
+          style={style}
+          initialCenter={{
+            lat: 40.854885,
+            lng: -88.081807
+          }}
+        >
+        {this.state.placeIds.map((place, index) => {
+          return (
+            <Marker
+              key={index}
+              onClick={this.markerClick}
+              title={place && place.name}
+              number={place && place.international_phone_number}
+              address={place && place.formatted_address}
+              name={place && place.name}
+              position={{lat: place && place.geometry.location.lat(), lng: place && place.geometry.location.lng()}}
+             />
+          );
+        })}
 
-      <InfoWindow
-        marker={this.state.activeMarker}
-        visible={this.state.showingInfoWindow}>
-        <div>
-          <h4>{this.state.selectedPlace.name}</h4>
-          <h4><a href={this.state.selectedPlace.number}>{this.state.selectedPlace.number}</a></h4>
-          <h4>{this.state.selectedPlace.address}</h4>
-        </div>
-      </InfoWindow>
-      </Map>
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}>
+          <div>
+            <h4>{this.state.selectedPlace.name}</h4>
+            <h4><a href={this.state.selectedPlace.number}>{this.state.selectedPlace.number}</a></h4>
+            <h4>{this.state.selectedPlace.address}</h4>
+          </div>
+        </InfoWindow>
+        </Map>
+        <MapList items={this.state.placeIds} />
+      </div>
     );
   }
 }
