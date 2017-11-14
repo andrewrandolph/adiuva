@@ -34,17 +34,18 @@ export class MapContainer extends React.Component {
   }
 
   render() {
-    const style = {
-      width: '600px',
-      height: '600px'
+    const styles = {
+      position: 'absolute',
+      width: '88.5%',
+      height: '42%'
     };
     return (
       <div>
         <Map
           google={this.props.google}
           zoom={9}
+          style={styles}
           onReady={this.fetchPlaces}
-          style={style}
           initialCenter={{
             lat: 40.854885,
             lng: -88.081807
