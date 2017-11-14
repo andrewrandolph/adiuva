@@ -818,10 +818,6 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bootstrap@3.3.6:
-  version "3.3.6"
-  resolved "https://pi-artifactory.lmig.com/artifactory/api/npm/npm/bootstrap/-/bootstrap-3.3.6.tgz#8de8f749dc8a743f2ac5b510d988371e3daa6589"
-
 brace-expansion@^1.0.0, brace-expansion@^1.1.7:
   version "1.1.8"
   resolved "https://pi-artifactory.lmig.com/artifactory/api/npm/npm/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"

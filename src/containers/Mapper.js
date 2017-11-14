@@ -35,16 +35,11 @@ export class MapContainer extends React.Component {
 
   render() {
     console.log(this.state);
-    const style = {
-      width: '600px',
-      height: '600px'
-    };
     return (
       <Map
         google={this.props.google}
         zoom={12}
         onReady={this.fetchPlaces}
-        style={style}
         initialCenter={{
           lat: 40.854885,
           lng: -88.081807
