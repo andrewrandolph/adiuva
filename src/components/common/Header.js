@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BurgerMenu from '../burgerMenu/BurgerMenu';
+import { connect } from 'react-redux';
 import { Link, IndexLink } from 'react-router';
 
 class Header extends React.Component {
@@ -9,6 +10,7 @@ class Header extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <BurgerMenu />
@@ -25,4 +27,10 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state, ownProps) {
+  return {
+    toggled: ownProps.isMenuToggled
+  };
+}
+
+export default connect(mapStateToProps)(Header);

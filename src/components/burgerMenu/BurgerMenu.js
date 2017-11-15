@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import BurgerMenuChild from './BurgerMenuChild';
 import { Link, IndexLink } from 'react-router';
+import { bindActionCreators } from 'redux';
+import * as actions from '../../actions/mapActions';
 
 class BurgerMenu extends React.Component {
   constructor(props) {
@@ -11,10 +14,10 @@ class BurgerMenu extends React.Component {
     };
   }
   handleClick() {
-    const menuNav = document.querySelector('nav');
     this.setState({
       menuIsEnabled: !this.state.menuIsEnabled
-    }, menuNav.classList.toggle("navIsExpanded"));
+    });
+    this.props.actions.toggleMenu(this.state.menuIsEnabled);
   }
   render() {
     return (
@@ -24,11 +27,19 @@ class BurgerMenu extends React.Component {
 }
 
 BurgerMenu.propTypes = {
-  menuIsEnabled: false
+  actions: PropTypes.object
 };
 
-BurgerMenu.defaultProps = {
-  menuIsEnabled: false
-};
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
 
-export default BurgerMenu;
+function mapStateToProps(state, ownProps) {
+  return {
+    navToggled: state.menuIsEnabled
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BurgerMenu);
