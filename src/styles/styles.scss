@@ -1,4 +1,7 @@
+/***** Aduiva Styling *****/
+
 /***** Fonts ****/
+
 /* cyrillic-ext */
 @font-face {
   font-family: 'Montserrat';
@@ -39,6 +42,24 @@
   src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYAzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
+
+/* latin */
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Crimson Text SemiBold Italic'), local('CrimsonText-SemiBoldItalic'), url(https://fonts.gstatic.com/s/crimsontext/v8/4j4TR-EfnvCt43InYpUNDEGjWynV6JUy6bTtUoDwWRw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin */
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Crimson Text Regular'), local('CrimsonText-Regular'), url(https://fonts.gstatic.com/s/crimsontext/v8/3IFMwfRa07i-auYR-B-zNRampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 /***** End Fonts *****/
 
 /***** Global Breakpoints *****/
@@ -49,8 +70,12 @@ $desktop: 1020px;
 
 /***** Default Element Styling ****/
 body {
-  background: rgb(243, 243, 243);
-  margin: 0;
+background: #f4f4f4; /* Old browsers */
+background: -moz-linear-gradient(left, #f4f4f4 0%, #c8c8c8 53%, #ffffff 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #f4f4f4 0%,#c8c8c8 53%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #f4f4f4 0%,#c8c8c8 53%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+margin: 0;
 
   div#app {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -59,9 +84,6 @@ body {
     min-width: 300px;
     max-width: 100%;
     margin: 0 5%;
-    min-height: 750px;
-    padding: 0 10px 50px 10px;
-    box-shadow: 5px 5px 40px grey;
     border-bottom-left-radius: 5px;
     -moz-border-radius-bottomleft: 5px;
     -webkit-border-bottom-left-radius: 5px;
@@ -101,7 +123,7 @@ body {
           border-top-right-radius: 5px;
           -moz-border-radius-topright: 5px;
           -webkit-border-top-right-radius: 5px;
-          padding: 0 5px;
+          padding: 10px 5px;
         }
 
         a:hover {
@@ -110,7 +132,7 @@ body {
         }
 
         a.active {
-          background: #D9D2D2;
+          /* background: #D9D2D2; */ /* TODO find a way to make the burger menu work with this */
           color: #9D0320;
         }
 
@@ -123,18 +145,45 @@ body {
 
     div.container-fluid { /* Google Map Fix */
       div.mapClass{
-        border: 1px solid #95989A;
-        -moz-border-radius: 9px;
-        -webkit-border-radius: 9px;
-        border-radius: 9px;
-        -moz-box-shadow: #dad9d9 3px 3px 12px;
-        -webkit-box-shadow: #dad9d9 3px 3px 12px;
-        box-shadow: #dad9d9 3px 3px 12px;
+        border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomright: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        -webkit-border-bottom-left-radius: 5px;
 
         div {
           div {
             position: relative; /* "App"solutely brutal, however, necessary fix - thank you for that one Google ;) */
             max-height: 337px;
+          }
+
+          ul {
+            background: #fff;
+            padding-top: 2px;
+            padding-bottom: 50px;
+            margin-top: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            font-family: 'Crimson Text';
+            font-style: italic;
+
+            li {
+              background-color: #D9D2D2;
+              border: solid 1px #95989a;
+              color: #380101;
+              list-style-type: none;
+              margin: 20px 5% 15px 0;
+              padding: 8px;
+              -moz-border-radius: 5px;
+              -webkit-border-radius: 5px;
+              border-radius: 5px
+            }
+
+            h2 {
+              margin: 1px 5px;
+            }
           }
         }
       }
@@ -227,6 +276,12 @@ body {
         flex-direction: column;
           a {
             font-size: 0em;  /* CHEAP way to rival a jQuery slider w/o jQuery  ***VERY*** crude, but oh soooo effective ;-) */
+            -moz-border-radius-bottomright: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -webkit-border-bottom-left-radius: 5px;
+            border-bottom-left-radius: 5px;
           }
         }
 
@@ -246,73 +301,72 @@ body {
 /***** Tablet Styling *****/
   @media(min-width: $tablet) {
     div#app {
-/***** Tripple Burger Styling for Tablet (hopefully veggie :-)~ ) *****/
-  .burgerMenu {
-    cursor: pointer;
-    width: 120px;
-    height: 90px;
-    position:absolute;
-    right: 6%;
-    font-size: 1.6em;
+  /***** Tripple Burger Styling for Tablet (hopefully veggie :-)~ ) *****/
+      .burgerMenu {
+        cursor: pointer;
+        width: 120px;
+        height: 90px;
+        position:absolute;
+        right: 6%;
+        font-size: 1.6em;
 
-      div.tripleBurger1{
-        width: 100%;
-        height: 6px;
-        background-color: #582727;
-        position: relative;
-        top: 15px;
+          div.tripleBurger1 {
+            width: 100%;
+            height: 6px;
+            background-color: #582727;
+            position: relative;
+            top: 15px;
 
+          }
+
+          div.tripleBurger2 {
+            width: 100%;
+            height: 6px;
+            background-color: #582727;
+            position: relative;
+            top: 30px;
+          }
+
+          div.tripleBurger3 {
+            width: 100%;
+            height: 6px;
+            background-color: #582727;
+            position: relative;
+            top: 45px;
+          }
+        }
+
+      .burgerMenu.menuIsExpanded {
+        div.tripleBurger1{
+          -ms-transform: rotate(45deg); /* IE 9 */
+          -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+          transform: rotate(45deg);
+          top: 32px
+        }
+
+        div.tripleBurger2 {
+          -ms-transform: rotate(90deg); /* IE 9 */
+          -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+          transform: rotate(90deg);
+          top: 37px;
+          opacity: 0;
+        }
+
+        div.tripleBurger3 {
+          -ms-transform: rotate(-45deg); /* IE 9 */
+          -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+          transform: rotate(-45deg);
+          top: 21px;
+        }
       }
-
-      div.tripleBurger2{
-        width: 100%;
-        height: 6px;
-        background-color: #582727;
-        position: relative;
-        top: 30px;
-      }
-
-      div.tripleBurger3{
-        width: 100%;
-        height: 6px;
-        background-color: #582727;
-        position: relative;
-        top: 45px;
-      }
-    }
-
-  .burgerMenu.menuIsExpanded {
-    div.tripleBurger1{
-      -ms-transform: rotate(45deg); /* IE 9 */
-      -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-      transform: rotate(45deg);
-      top: 32px
-    }
-
-    div.tripleBurger2{
-      -ms-transform: rotate(90deg); /* IE 9 */
-      -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-      transform: rotate(90deg);
-      top: 37px;
-      opacity: 0;
-    }
-
-    div.tripleBurger3{
-      -ms-transform: rotate(-45deg); /* IE 9 */
-      -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
-      transform: rotate(-45deg);
-      top: 21px;
-    }
-  }
-/***** End Tripple Burger Time Styling for Tablet *****/
+    /***** End Tripple Burger Time Styling for Tablet *****/
       nav.navIsExpanded a {
         color: #8E0000;
         font-size: 1.5em;
         margin: 20px 0 4% 1.7%;
+        }
       }
-
     }
-  }
 /***** End Tablet Styling *****/
 
 /***** Desktop Styling *****/
@@ -337,10 +391,5 @@ body {
     }
   }
 /***** End Desktop Styling *****/
-
-/*
-  div#app div div div{
-      display: flex;
-      justify-content: center;
-  } */
 }
+/***** End Aduiva Styling *****/
