@@ -11,7 +11,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mapClass">
         <Mapper agencies={this.props.agencies}/>
       </div>
     );

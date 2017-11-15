@@ -1,28 +1,73 @@
 /***** Fonts ****/
-
+/* cyrillic-ext */
 @font-face {
-  font-family: 'Heiti TC';/* IE9 Compat Modes */
-  src: url('fonts/New Song (Ming) Typeface (Heiti TC Light) Font-Simplified Chinese.ttf')  format('truetype'), /* Safari, Android, iOS */
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/rBHvpRWBkgyW99dXT88n7wsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
 }
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/NX1NravqaXESu9fFv7KuqgsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/SKK6Nusyv8QPNMtI4j9J2wsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/gFXtEMCp1m_YzxsBpKl68gsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYAzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/***** End Fonts *****/
 
 /***** Global Breakpoints *****/
-
 $mobile: 50px;
 $tablet: 768px;
 $desktop: 1020px;
+/***** End Global Breakpoints *****/
 
 /***** Default Element Styling ****/
-
 body {
-  background: rgb(235, 235, 235);
+  background: rgb(243, 243, 243);
+  margin: 0;
 
   div#app {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #fff;
     color: #4d4d4d;
     min-width: 300px;
     max-width: 100%;
-    margin: 0 auto;
-    padding: 0 5%;
+    margin: 0 5%;
+    min-height: 750px;
+    padding: 0 10px 50px 10px;
+    box-shadow: 5px 5px 40px grey;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
 
     div.jumbotron{
       h1.appVersion {
@@ -33,22 +78,64 @@ body {
         font-size: 1em;
         font-weight: normal;
         padding: 5px;
+        margin: 0;
       }
     }
 
     div {
       nav {
-        background: url(../img/logoAdiuva.svg) no-repeat;
+        background: url(../img/logo_Adiuva.svg) no-repeat;
         background-size: 40%;
         min-height: 15px;
-        padding-top: 13.3%;
+        padding-top: 11.7%;
 
         a {
-          font-family: 'Heiti TC';
+          font-family: 'Montserrat';
           text-decoration: none;
           -moz-transition: all 0.5s ease;
           -webkit-transition: all 0.5s ease;
           transition: all 0.5s ease;
+          border-top-left-radius: 5px;
+          -moz-border-radius-topleft: 5px;
+          -webkit-border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          -moz-border-radius-topright: 5px;
+          -webkit-border-top-right-radius: 5px;
+          padding: 0 5px;
+        }
+
+        a:hover {
+          background: #9D0320;
+          color: #fff !important;  /* TODO find a better way of doing this */
+        }
+
+        a.active {
+          background: #D9D2D2;
+          color: #9D0320;
+        }
+
+        a.active:hover {
+          background: #9D0320;
+        }
+
+      }
+    }
+
+    div.container-fluid { /* Google Map Fix */
+      div.mapClass{
+        border: 1px solid #95989A;
+        -moz-border-radius: 9px;
+        -webkit-border-radius: 9px;
+        border-radius: 9px;
+        -moz-box-shadow: #dad9d9 3px 3px 12px;
+        -webkit-box-shadow: #dad9d9 3px 3px 12px;
+        box-shadow: #dad9d9 3px 3px 12px;
+
+        div {
+          div {
+            position: relative; /* "App"solutely brutal, however, necessary fix - thank you for that one Google ;) */
+            max-height: 337px;
+          }
         }
       }
     }
@@ -57,13 +144,14 @@ body {
   a.active {
     color: orange;
   }
+/***** End Default Element Styling ****/
 
 /***** Mobile Styling *****/
-
   @media(min-width: $mobile) {
     div#app {
+/***** Tripple Burger Styling for Mobile (hopefully veggie :-)~ ) *****/
       .burgerMenu {
-        background: blue;
+        color: #C7C7C7;
         cursor: pointer;
         width: 75px;
         height: 55px;
@@ -72,42 +160,151 @@ body {
         -moz-transition: all 0.5s ease;
         -webkit-transition: all 0.5s ease;
         transition: all 0.5s ease;
-      }
+        text-align: center;
+        font-family: 'Montserrat';
+        font-size: 1em;
 
-      nav {
-        display: flex;
-        flex-direction: column;
+          div.tripleBurger1{
+            width: 100%;
+            height: 6px;
+            background-color: #582727;
+            position: relative;
+            top: 0px;
+            -moz-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+          }
 
-          a {
-            display: none;
+          div.tripleBurger2{
+            width: 100%;
+            height: 6px;
+            background-color: #582727;
+            position: relative;
+            top: 6px;
+            -moz-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+          }
+
+          div.tripleBurger3{
+            width: 100%;
+            height: 6px;
+            background-color: #582727;
+            position: relative;
+            top: 12px;
+            -moz-transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
           }
         }
 
-      nav.navIsExpanded a {
-        color: #8E0000;
-        display: block;
-        font-size: 1em;
-        margin: 18px 0 2% 1%;
+        .burgerMenu.menuIsExpanded {
+          div.tripleBurger1{
+            -ms-transform: rotate(45deg); /* IE 9 */
+            -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+            transform: rotate(45deg);
+            top: 20px
+          }
+
+          div.tripleBurger2{
+            -ms-transform: rotate(90deg); /* IE 9 */
+            -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+            transform: rotate(90deg);
+            top: 21px;
+            opacity: 0;
+          }
+
+          div.tripleBurger3{
+            -ms-transform: rotate(-45deg); /* IE 9 */
+            -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+            transform: rotate(-45deg);
+            top: 10px;
+          }
+        }
+/***** End Tripple Burger Time Styling for Mobile *****/
+      nav {
+        display: flex;
+        flex-direction: column;
+          a {
+            font-size: 0em;  /* CHEAP way to rival a jQuery slider w/o jQuery  ***VERY*** crude, but oh soooo effective ;-) */
+          }
+        }
+
+      nav.navIsExpanded {
+        a {
+          color: #8E0000;
+          display: block;
+          font-size: 1em;
+          margin: 18px 0 2% 1%;
+          font-weight: bold;
         }
       }
     }
+  }
+/***** End Mobile Styling *****/
 
-/***** Desktop Styling *****/
-
+/***** Tablet Styling *****/
   @media(min-width: $tablet) {
     div#app {
-      .burgerMenu {
-        background: blue;
-        cursor: pointer;
-        width: 120px;
-        height: 90px;
-        position: absolute;
-        right: 6%;
-        -moz-transition: all 0.5s ease;
-        -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease;
+/***** Tripple Burger Styling for Tablet (hopefully veggie :-)~ ) *****/
+  .burgerMenu {
+    cursor: pointer;
+    width: 120px;
+    height: 90px;
+    position:absolute;
+    right: 6%;
+    font-size: 1.6em;
+
+      div.tripleBurger1{
+        width: 100%;
+        height: 6px;
+        background-color: #582727;
+        position: relative;
+        top: 15px;
+
       }
 
+      div.tripleBurger2{
+        width: 100%;
+        height: 6px;
+        background-color: #582727;
+        position: relative;
+        top: 30px;
+      }
+
+      div.tripleBurger3{
+        width: 100%;
+        height: 6px;
+        background-color: #582727;
+        position: relative;
+        top: 45px;
+      }
+    }
+
+  .burgerMenu.menuIsExpanded {
+    div.tripleBurger1{
+      -ms-transform: rotate(45deg); /* IE 9 */
+      -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+      transform: rotate(45deg);
+      top: 32px
+    }
+
+    div.tripleBurger2{
+      -ms-transform: rotate(90deg); /* IE 9 */
+      -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+      transform: rotate(90deg);
+      top: 37px;
+      opacity: 0;
+    }
+
+    div.tripleBurger3{
+      -ms-transform: rotate(-45deg); /* IE 9 */
+      -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+      transform: rotate(-45deg);
+      top: 21px;
+    }
+  }
+/***** End Tripple Burger Time Styling for Tablet *****/
       nav.navIsExpanded a {
         color: #8E0000;
         font-size: 1.5em;
@@ -116,9 +313,11 @@ body {
 
     }
   }
+/***** End Tablet Styling *****/
 
+/***** Desktop Styling *****/
   @media(min-width: $desktop) {
-    div#app div.container-fluid div { // increase specificity
+    div#app div.container-fluid div { // <-- increase specificity
       .burgerMenu {
         display: none;
       }
@@ -137,6 +336,8 @@ body {
       }
     }
   }
+/***** End Desktop Styling *****/
+
 /*
   div#app div div div{
       display: flex;

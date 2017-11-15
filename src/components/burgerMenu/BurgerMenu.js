@@ -18,7 +18,7 @@ class BurgerMenu extends React.Component {
   }
   render() {
     return (
-      <BurgerMenuChild className= {this.state.menuIsEnabled ? "burgerMenu menuIsExpanded" : "burgerMenu"}  onClick={() => this.handleClick()}>Click me if you dare!</BurgerMenuChild>
+      <BurgerMenuChild className = {this.state.menuIsEnabled ? "burgerMenu menuIsExpanded" : "burgerMenu"}  onClick = {() => this.handleClick()}>Menu <div className="tripleBurger1"></div> <div className="tripleBurger2"></div> <div className="tripleBurger3"></div> </BurgerMenuChild>
     );
   }
 }

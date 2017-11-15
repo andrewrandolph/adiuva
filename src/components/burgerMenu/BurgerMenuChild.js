@@ -6,7 +6,7 @@ class BurgerMenuChild extends React.Component {
     this.props.onClick();
   }
   render() {
-    return <div className={this.props.className} onClick={() => this.toggleClassName()} > {this.props.children} </div>;
+    return <div className={this.props.className} onClick={() => this.toggleClassName()} > {this.props.children} </div>
   }
 }
 
