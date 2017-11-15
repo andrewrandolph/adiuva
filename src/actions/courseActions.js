@@ -7,3 +7,7 @@ export function saveAgency(agency) {
 export function deleteAgency(agencyTitle) {
   return {type: types.DELETE_AGENCY, agencyTitle};
 }
+
+export function saveRange(distance) {
+  return {type: types.UPDATE_RANGE, distance};
+}

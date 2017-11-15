@@ -72,10 +72,6 @@ AgencyPage.propTypes = {
   agencies: PropTypes.array.isRequired
 };
 
-AgencyPage.defaultProps = {
-  agencies: []
-};
-
 function mapStateToProps(state, ownProps) {
   return {
     agencies: state.agencies

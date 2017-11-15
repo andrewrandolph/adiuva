@@ -9,58 +9,36 @@ class rangePage extends React.Component {
     super(props, context);
 
     this.state = {
-      range:
-        {
-          title: ""
-        }
+      distance: 1000
     };
 
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onClickSave = this.onClickSave.bind(this);
-    this.onClickDelete = this.onClickDelete.bind(this);
-    this.rangeRow = this.rangeRow.bind(this);
+    this.onRangeChange = this.onRangeChange.bind(this);
+    //this.onClickSave = this.onClickSave.bind(this);
   }
 
-  onTitleChange(event) {
-    const range = this.state.range;
-    range.title = event.target.value;
+  onRangeChange(event) {
     this.setState({
-      range: range
+      distance: event.target.value
     });
   }
 
-  onClickSave() {
-    this.state.range.title != '' ? this.props.actions.saverange(this.state.range) : alert("Enter a place");
-  }
-
-  onClickDelete(rangeTitle) {
-    this.props.actions.deleterange(rangeTitle);
-  }
-
-  rangeRow(range, index) {
-    return (
-      <div key={index}>
-        <span>{range.title}</span>
-        <button onClick={() => this.onClickDelete(range.title)} className="btn btn-danger">Delete</button>
-      </div>
-    );
-  }
+  // onClickSave() {
+  //   this.state.distance != 0 || this.state.distance >= 50000 ? this.props.actions.saveRange(this.state.distance) : alert("Enter a place");
+  // }
 
   render() {
     return (
       <div>
-        <h1>This is a Range Page</h1>
-        {this.props.agencies.map(this.rangeRow)}
-        <h2>Set Range</h2>
+        <h1>Current Range: {this.state.distance}</h1>
         <input
           type="text"
-          onChange={this.onTitleChange}
-          value={this.state.range.title}
+          onChange={this.onRangeChange}
+          value={this.state.distance}
         />
         <input
           type="submit"
           onClick={this.onClickSave}
-          value="Save"
+          value="Update Range"
         />
       </div>
     );
@@ -69,16 +47,12 @@ class rangePage extends React.Component {
 
 rangePage.propTypes = {
   actions: PropTypes.object.isRequired,
-  agencies: PropTypes.array.isRequired
-};
-
-rangePage.defaultProps = {
-  agencies: []
+  distance: PropTypes.number
 };
 
 function mapStateToProps(state, ownProps) {
   return {
-    agencies: state.agencies
+    distance: state.distance
   };
 }
 
