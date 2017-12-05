@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import MapList from '../components/MapList';
 import PropTypes from 'prop-types';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 
-export class MapContainer extends React.Component {
+export class MapContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -20,9 +20,9 @@ export class MapContainer extends React.Component {
 
   fetchPlaces(mapProps, map) {
     const {google, initialCenter: { lat, lng }} = mapProps;
-    const {agencies} = this.props;
+    const {agencies, distance} = this.props;
     const service = new google.maps.places.PlacesService(map);
-    agencies.map(agency => service.nearbySearch({location: {lat, lng}, radius: 10000, keyword:agency.title}, (results) => results.map(result => service.getDetails({placeId: result.place_id}, (result, response) => this.setState({placeIds: this.state.placeIds.concat(result)})))));
+    agencies.map(agency => service.nearbySearch({location: {lat, lng}, radius: distance, keyword:agency.title}, (results) => results.map(result => service.getDetails({placeId: result.place_id}, (result, response) => this.setState({placeIds: this.state.placeIds.concat(result)})))));
   }
 
   markerClick(props, marker, e) {
@@ -33,17 +33,27 @@ export class MapContainer extends React.Component {
     });
   }
 
+  determineDistance(distance) {
+    if (distance > 0 && distance <= 5000) {
+      return 11;
+    } else if (distance > 5000 && distance <= 20000) {
+      return 10;
+    } else {
+      return 9;
+    }
+  }
+
   render() {
     const mapStyles = {
       position: 'relative',
       width: '100%',
-      height: '337px'
+      height: '350px'
     };
     return (
-      <div>
+      <div className="map-container">
         <Map
           google={this.props.google}
-          zoom={11}
+          zoom={this.determineDistance(this.props.distance)}
           style={mapStyles}
           onReady={this.fetchPlaces}
           initialCenter={{
@@ -74,8 +84,8 @@ export class MapContainer extends React.Component {
             <h4>{this.state.selectedPlace.address}</h4>
           </div>
         </InfoWindow>
-        </Map>
         <MapList className={this.state.placeIds ? 'showItems' : 'hideItems'} items={this.state.placeIds} />
+        </Map>
       </div>
     );
   }
@@ -83,7 +93,9 @@ export class MapContainer extends React.Component {
 
 MapContainer.propTypes = {
   google: PropTypes.object.isRequired,
-  agencies: PropTypes.array
+  agencies: PropTypes.array,
+  distance: PropTypes.number,
+  zoom: PropTypes.Number
 };
 
 export default GoogleApiWrapper({

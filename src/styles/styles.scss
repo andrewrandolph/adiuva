@@ -77,6 +77,12 @@ background: linear-gradient(to right, #f4f4f4 0%,#c8c8c8 53%,#ffffff 100%); /* W
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
 margin: 0;
 
+  .map-container {
+    .map {
+      position: relative;
+    }
+  }
+
   div#app {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: #fff;
@@ -91,17 +97,16 @@ margin: 0;
     -moz-border-radius-bottomright: 5px;
     -webkit-border-bottom-right-radius: 5px;
 
-    div.jumbotron{
-      h1.appVersion {
-        background-color: #9D0320;
-        color: #fff;
-        font-family: georgia;
-        font-style: italic;
-        font-size: 1em;
-        font-weight: normal;
-        padding: 5px;
-        margin: 0;
-      }
+
+    h1.appVersion {
+      background-color: #9D0320;
+      color: #fff;
+      font-family: georgia;
+      font-style: italic;
+      font-size: 1.5em;
+      font-weight: normal;
+      padding: 5px;
+      margin: 0;
     }
 
     div {
@@ -197,6 +202,16 @@ margin: 0;
 
 /***** Mobile Styling *****/
   @media(min-width: $mobile) {
+
+    .map-container {
+      position: relative;
+    }
+
+    a:hover {
+      background: #fff;
+      color: #fff
+    }
+
     div#app {
 /***** Tripple Burger Styling for Mobile (hopefully veggie :-)~ ) *****/
       .burgerMenu {
@@ -272,8 +287,6 @@ margin: 0;
         }
 /***** End Tripple Burger Time Styling for Mobile *****/
       nav {
-        display: flex;
-        flex-direction: column;
           a {
             font-size: 0em;  /* CHEAP way to rival a jQuery slider w/o jQuery  ***VERY*** crude, but oh soooo effective ;-) */
             -moz-border-radius-bottomright: 5px;

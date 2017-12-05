@@ -17,9 +17,7 @@ class Header extends React.Component {
           <Link to="/configureHelpfulLocations" activeClassName="active">Configure Helpful Locations</Link>
           <Link to="/range" activeClassName="active">Configure Range</Link>
         </nav>
-        <div className="jumbotron">
-          <h1 className="appVersion">v1.0 - M'aidez - Pre Beta Release</h1>
-        </div>
+        <h1 className="appVersion">v1.0 - M'aidez - Pre Beta Release</h1>
       </div>
     );
   }

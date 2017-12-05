@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as courseActions from '../../actions/courseActions';
+import * as mapActions from '../../actions/mapActions';
 
 class rangePage extends React.Component {
   constructor(props, context) {
@@ -13,7 +13,7 @@ class rangePage extends React.Component {
     };
 
     this.onRangeChange = this.onRangeChange.bind(this);
-    //this.onClickSave = this.onClickSave.bind(this);
+    this.onClickSave = this.onClickSave.bind(this);
   }
 
   onRangeChange(event) {
@@ -22,14 +22,14 @@ class rangePage extends React.Component {
     });
   }
 
-  // onClickSave() {
-  //   this.state.distance != 0 || this.state.distance >= 50000 ? this.props.actions.saveRange(this.state.distance) : alert("Enter a place");
-  // }
+  onClickSave() {
+    this.state.distance > 0 && this.state.distance <= 50000 ? this.props.actions.saveRange(this.state.distance) : alert("Enter another distance");
+  }
 
   render() {
     return (
-      <div>
-        <h1>Current Range: {this.state.distance}</h1>
+      <div className="">
+        <h1>Current Range: {this.props.distance} M</h1>
         <input
           type="text"
           onChange={this.onRangeChange}
@@ -52,13 +52,13 @@ rangePage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    distance: state.distance
+    distance: Number(state.distance)
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(courseActions, dispatch)
+    actions: bindActionCreators(mapActions, dispatch)
   };
 }
 

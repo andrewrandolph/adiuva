@@ -12,7 +12,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="mapClass">
-        <Mapper agencies={this.props.agencies}/>
+        <Mapper distance={this.props.distance} agencies={this.props.agencies}/>
       </div>
     );
   }
@@ -20,12 +20,14 @@ class HomePage extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    agencies: state.agencies
+    agencies: state.agencies,
+    distance: state.distance
   };
 }
 
 HomePage.propTypes = {
-  agencies: PropTypes.array
+  agencies: PropTypes.array,
+  distance: PropTypes.number
 };
 
 export default connect(mapStateToProps)(HomePage);
