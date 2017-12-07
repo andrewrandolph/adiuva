@@ -26,6 +26,7 @@ class Header extends Component {
           <IndexLink to="/" activeClassName="active">Home</IndexLink>
           <Link to="/configureHelpfulLocations" activeClassName="active">Configure Helpful Locations</Link>
           <Link to="/range" activeClassName="active">Configure Range</Link>
+          <Link to="/about" activeClassName="active">About</Link>
         </nav>
         <h1 className="appVersion">v1-Pre Beta Release</h1>
       </div>
