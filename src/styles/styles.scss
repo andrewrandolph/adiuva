@@ -149,6 +149,8 @@ margin: 0;
     }
 
     div.container-fluid { /* Google Map Fix */
+      padding-left: 0px;
+      padding-right: 0px;
       div.mapClass{
         border-bottom-right-radius: 5px;
         -moz-border-radius-bottomright: 5px;

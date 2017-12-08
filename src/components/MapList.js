@@ -38,7 +38,7 @@ class MapList extends React.Component {
             <a href={item && item.website}>{item && item.website}</a>
           </li>
           :
-          <span></span>
+          <span key={index}></span>
         );
       })}
       </ul>

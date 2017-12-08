@@ -16,6 +16,7 @@ export class MapContainer extends Component {
 
     this.fetchPlaces = this.fetchPlaces.bind(this);
     this.markerClick = this.markerClick.bind(this);
+    this.determineDistance = this.determineDistance.bind(this);
   }
 
   fetchPlaces(mapProps, map) {
@@ -95,7 +96,7 @@ MapContainer.propTypes = {
   google: PropTypes.object.isRequired,
   agencies: PropTypes.array,
   distance: PropTypes.number,
-  zoom: PropTypes.Number
+  zoom: PropTypes.function
 };
 
 export default GoogleApiWrapper({
