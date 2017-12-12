@@ -61,7 +61,7 @@ export class MapContainer extends Component {
       return 10;
     } else if (distance <= 20000) {
       return 8;
-    }
+    } 
   }
 
   render() {
