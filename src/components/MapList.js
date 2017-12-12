@@ -6,24 +6,9 @@ import {Marker} from 'google-maps-react';
 class MapList extends React.Component {
   constructor(props) {
     super(props);
-
-    this.generateList = this.generateList.bind(this);
-  }
-
-  generateList() {
-    const {items} = this.props;
-    items.map((item, index) => {
-      return (
-        <li key={index}>
-          <h2>{item.name}</h2>
-          <h3>{item.formatted_address}</h3>
-        </li>
-      );
-    });
   }
 
   render() {
-
     const items = this.props && this.props.items;
     return (
       <ul>

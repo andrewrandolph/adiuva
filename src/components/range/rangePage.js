@@ -9,7 +9,7 @@ class rangePage extends React.Component {
     super(props, context);
 
     this.state = {
-      distance: 1000
+      distance: ''
     };
 
     this.onRangeChange = this.onRangeChange.bind(this);
@@ -23,23 +23,27 @@ class rangePage extends React.Component {
   }
 
   onClickSave() {
-    this.state.distance > 0 && this.state.distance <= 50000 ? this.props.actions.saveRange(this.state.distance) : alert("Enter another distance");
+    this.state.distance >= 100 && this.state.distance <= 50000 ? this.props.actions.saveRange(this.state.distance) : alert("Enter another distance");
   }
 
   render() {
     return (
-      <div className="">
+      <div className="displayWindow">
         <h1>Current Range: {this.props.distance} M</h1>
-        <input
-          type="text"
-          onChange={this.onRangeChange}
-          value={this.state.distance}
-        />
-        <input
-          type="submit"
-          onClick={this.onClickSave}
-          value="Update Range"
-        />
+        <div className="row">
+          <input
+            className="form-control col-sm-9"
+            type="text"
+            onChange={this.onRangeChange}
+            value={this.state.distance}
+          />
+          <input
+            className="btn btn-primary col-sm-2"
+            type="submit"
+            onClick={this.onClickSave}
+            value="Update Range"
+          />
+        </div>
       </div>
     );
   }

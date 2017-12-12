@@ -48,20 +48,24 @@ class AgencyPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="displayWindow">
         <h1>Agencies</h1>
         {this.props.agencies.map(this.agencyRow)}
         <h2>Add Emergency Agency</h2>
-        <input
-          type="text"
-          onChange={this.onTitleChange}
-          value={this.state.agency.title}
-        />
-        <input
-          type="submit"
-          onClick={this.onClickSave}
-          value="Save"
-        />
+        <div className="row">
+          <input
+            className="form-control col-sm-9"
+            type="text"
+            onChange={this.onTitleChange}
+            value={this.state.agency.title}
+          />
+          <input
+            className="btn btn-primary col-sm-2"
+            type="submit"
+            onClick={this.onClickSave}
+            value="Save"
+          />
+        </div>
       </div>
     );
   }
