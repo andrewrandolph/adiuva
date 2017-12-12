@@ -39,6 +39,7 @@ export class MapContainer extends Component {
     agencies.forEach(agency => service.nearbySearch({location: {lat, lng}, radius: distance, keyword:agency.title}, (results, error) => {
       setTimeout(() => this.fetchDetails(results, error, service), 2000);
     }));
+    //Added a comment to push branch
     //agencies.map(agency => service.nearbySearch({location: {lat, lng}, radius: distance, keyword:agency.title}, (results) => results.map(result => service.getDetails({placeId: result.place_id}, (result, response) => this.setState({placeIds: this.state.placeIds.concat(result)})))));
   }
 
@@ -61,7 +62,7 @@ export class MapContainer extends Component {
       return 10;
     } else if (distance <= 20000) {
       return 8;
-    } 
+    }
   }
 
   render() {
