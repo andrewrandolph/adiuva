@@ -48,8 +48,10 @@ export class MapContainer extends Component {
     const mapStyles = {
       position: 'relative',
       width: '100%',
-      height: '350px'
+      height: '550px',
+      transition: 'all ease 0.5s'
     };
+
     return (
       <div className="map-container">
         <Map
@@ -72,7 +74,7 @@ export class MapContainer extends Component {
               address={place && place.formatted_address}
               name={place && place.name}
               position={{lat: place && place.geometry.location.lat(), lng: place && place.geometry.location.lng()}}
-             />
+            />
           );
         })}
 
