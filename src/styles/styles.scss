@@ -77,6 +77,10 @@ background: linear-gradient(to right, #f4f4f4 0%,#c8c8c8 53%,#ffffff 100%); /* W
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
 margin: 0;
 
+  .hide {
+    display: none;
+  }
+
   .map-container {
     .map {
       position: relative;
