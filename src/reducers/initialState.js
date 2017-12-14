@@ -1,4 +1,13 @@
 export default {
-  agencies: [],
-  distance: 1000
+  agencies: [
+    {
+      title: 'Hospitals'
+    },
+    {
+      title: 'Food'
+    },
+    {
+      title: 'ER'
+    }],
+  distance: 500
 };

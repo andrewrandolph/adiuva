@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import BurgerMenu from '../burgerMenu/BurgerMenu';
 import { Link, IndexLink } from 'react-router';
 

@@ -9,6 +9,7 @@ export class MapContainer extends Component {
 
     this.state = {
       placeIds: [],
+      searchResults: [],
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {}
@@ -17,13 +18,29 @@ export class MapContainer extends Component {
     this.fetchPlaces = this.fetchPlaces.bind(this);
     this.markerClick = this.markerClick.bind(this);
     this.determineDistance = this.determineDistance.bind(this);
+    this.mapPlaceIds = this.mapPlaceIds.bind(this);
+  }
+
+  mapPlaceIds(result, response) {
+    this.setState({
+      placeIds: this.state.placeIds.concat(result)
+    });
+  }
+
+  fetchDetails(results, error, service) {
+    results.forEach(result => service.getDetails({placeId: result.place_id}, (result, response) => setTimeout(() => this.mapPlaceIds(result, response)), 2500));
   }
 
   fetchPlaces(mapProps, map) {
     const {google, initialCenter: { lat, lng }} = mapProps;
     const {agencies, distance} = this.props;
     const service = new google.maps.places.PlacesService(map);
-    agencies.map(agency => service.nearbySearch({location: {lat, lng}, radius: distance, keyword:agency.title}, (results) => results.map(result => service.getDetails({placeId: result.place_id}, (result, response) => this.setState({placeIds: this.state.placeIds.concat(result)})))));
+
+    agencies.forEach(agency => service.nearbySearch({location: {lat, lng}, radius: distance, keyword:agency.title}, (results, error) => {
+      setTimeout(() => this.fetchDetails(results, error, service), 2000);
+    }));
+    //Added a comment to push branch
+    //agencies.map(agency => service.nearbySearch({location: {lat, lng}, radius: distance, keyword:agency.title}, (results) => results.map(result => service.getDetails({placeId: result.place_id}, (result, response) => this.setState({placeIds: this.state.placeIds.concat(result)})))));
   }
 
   markerClick(props, marker, e) {
@@ -35,12 +52,16 @@ export class MapContainer extends Component {
   }
 
   determineDistance(distance) {
-    if (distance > 0 && distance <= 5000) {
+    if (distance <= 500) {
+      return 14;
+    } else if (distance <= 2500) {
+      return 12;
+    } else if (distance <= 5000) {
       return 11;
-    } else if (distance > 5000 && distance <= 20000) {
+    } else if (distance <= 10000) {
       return 10;
-    } else {
-      return 9;
+    } else if (distance <= 20000) {
+      return 8;
     }
   }
 
@@ -87,7 +108,7 @@ export class MapContainer extends Component {
             <h4>{this.state.selectedPlace.address}</h4>
           </div>
         </InfoWindow>
-        <MapList className={this.state.placeIds ? 'showItems' : 'hideItems'} items={this.state.placeIds} />
+        {this.state.placeIds ? <MapList items={this.state.placeIds} /> : ''}
         </Map>
       </div>
     );
