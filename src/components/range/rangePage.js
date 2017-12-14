@@ -28,7 +28,7 @@ class rangePage extends React.Component {
 
   render() {
     return (
-      <div className="displayWindow">
+      <div className="displayWindow range-area-class">
         <h1>Current Range: {this.props.distance} M</h1>
         <div className="row">
           <input

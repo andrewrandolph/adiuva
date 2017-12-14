@@ -48,7 +48,7 @@ class AgencyPage extends React.Component {
 
   render() {
     return (
-      <div className="displayWindow">
+      <div className="displayWindow agencies-area-class">
         <h1>Agencies</h1>
         {this.props.agencies.map(this.agencyRow)}
         <h2>Add Emergency Agency</h2>

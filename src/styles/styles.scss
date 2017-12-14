@@ -2,39 +2,7 @@
 
 /***** Fonts ****/
 
-/* cyrillic-ext */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/rBHvpRWBkgyW99dXT88n7wsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/NX1NravqaXESu9fFv7KuqgsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/SKK6Nusyv8QPNMtI4j9J2wsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/gFXtEMCp1m_YzxsBpKl68gsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
+/* Montserrat */
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -43,7 +11,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
-/* latin */
+/* Crimson Italic */
 @font-face {
   font-family: 'Crimson Text';
   font-style: italic;
@@ -51,7 +19,7 @@
   src: local('Crimson Text SemiBold Italic'), local('CrimsonText-SemiBoldItalic'), url(https://fonts.gstatic.com/s/crimsontext/v8/4j4TR-EfnvCt43InYpUNDEGjWynV6JUy6bTtUoDwWRw.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-/* latin */
+/* Crimson Normal */
 @font-face {
   font-family: 'Crimson Text';
   font-style: normal;
@@ -59,29 +27,112 @@
   src: local('Crimson Text Regular'), local('CrimsonText-Regular'), url(https://fonts.gstatic.com/s/crimsontext/v8/3IFMwfRa07i-auYR-B-zNRampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-
 /***** End Fonts *****/
 
+/***** Switches and Buttons *****/
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #36d42d;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #28ac1f;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/***** End Switches and Buttons *****/
+
 /***** Global Breakpoints *****/
-$mobile: 50px;
+$mobile: 1px;
 $tablet: 768px;
 $desktop: 1020px;
+$desktop-high-def: 1800px;
 /***** End Global Breakpoints *****/
 
 /***** Default Element Styling ****/
 body {
-background: #f4f4f4; /* Old browsers */
-background: -moz-linear-gradient(left, #f4f4f4 0%, #c8c8c8 53%, #ffffff 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left, #f4f4f4 0%,#c8c8c8 53%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right, #f4f4f4 0%,#c8c8c8 53%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
-margin: 0;
+  background: #f4f4f4; /* Old browsers */
+  background: -moz-linear-gradient(left, #f4f4f4 0%, #c8c8c8 53%, #ffffff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #f4f4f4 0%,#c8c8c8 53%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #f4f4f4 0%,#c8c8c8 53%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+  margin: 0;
 
   .hide {
     display: none;
   }
 
   .map-container {
+    div {
+      ul {
+        -moz-box-shadow: 0 0 30px;
+        -webkit-box-shadow: 0 0 30px;
+        box-shadow: 0 0 30px;
+      }
+
+      div {
+        -moz-box-shadow: 0 0 30px;
+        -webkit-box-shadow: 0 0 30px;
+        box-shadow: 0 0 30px;
+
+        div {
+          -moz-box-shadow: 0 0 30px;
+          -webkit-box-shadow: 0 0 30px;
+          box-shadow: 0 0 0;
+        }
+      }
+    }
+
     .map {
       position: relative;
     }
@@ -110,13 +161,13 @@ margin: 0;
     min-width: 300px;
     max-width: 100%;
     margin: 0 5%;
-    border-bottom-left-radius: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    -moz-border-radius-bottomright: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-
+    box-shadow: 0 0 30px;
+    border-bottom-left-radius: 15px;
+    -moz-border-radius-bottomleft: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -webkit-border-bottom-right-radius: 15px;
 
     h1.appVersion {
       background-color: #9D0320;
@@ -127,13 +178,15 @@ margin: 0;
       font-weight: normal;
       padding: 5px;
       margin: 0;
+      -webkit-box-shadow: 0 6px 30px #42474c;
+      -moz-box-shadow: 0 6px 30px #42474c;
+      box-shadow: 0 6px 30px #42474c;
     }
 
     div {
       nav {
         background: url(../img/logo_Adiuva.svg) no-repeat;
         background-size: 40%;
-        min-height: 15px;
         padding-top: 11.7%;
 
         a {
@@ -142,13 +195,6 @@ margin: 0;
           -moz-transition: all 0.5s ease;
           -webkit-transition: all 0.5s ease;
           transition: all 0.5s ease;
-          border-top-left-radius: 5px;
-          -moz-border-radius-topleft: 5px;
-          -webkit-border-top-left-radius: 5px;
-          border-top-right-radius: 5px;
-          -moz-border-radius-topright: 5px;
-          -webkit-border-top-right-radius: 5px;
-          padding: 10px 5px;
         }
 
         a:hover {
@@ -157,21 +203,21 @@ margin: 0;
         }
 
         a.active {
-          /* background: #D9D2D2; */ /* TODO find a way to make the burger menu work with this */
+          background: #D9D2D2;
           color: #9D0320;
         }
 
         a.active:hover {
           background: #9D0320;
         }
-
       }
     }
 
-    div.container-fluid { /* Google Map Fix */
+    div.container-fluid {
       padding-left: 0px;
       padding-right: 0px;
-      div.mapClass{
+
+      div.mapClass {
         border-bottom-right-radius: 5px;
         -moz-border-radius-bottomright: 5px;
         -webkit-border-bottom-right-radius: 5px;
@@ -180,39 +226,48 @@ margin: 0;
         -webkit-border-bottom-left-radius: 5px;
 
         div {
-          div {
-            position: relative; /* "App"solutely brutal, however, necessary fix - thank you for that one Google ;) */
-            max-height: 337px;
-          }
-
           ul {
             background: #fff;
             padding-top: 2px;
             padding-bottom: 50px;
             margin-top: 2px;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            border-radius: 5px;
+            border-bottom-right-radius: 15px;
+            -moz-border-radius-bottomright: 15px;
+            -webkit-border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            -moz-border-radius-bottomleft: 15px;
+            -webkit-border-bottom-left-radius: 15px;
             font-family: 'Crimson Text';
             font-style: italic;
 
             li {
-              background-color: #D9D2D2;
-              border: solid 1px #95989a;
+              background-color: #efe9e9;
+              border: solid 1px #c3c0c3;
               color: #380101;
               list-style-type: none;
-              margin: 20px 5% 15px 0;
+              margin: 20px 37px 15px 0;
               padding: 8px;
               -moz-border-radius: 5px;
               -webkit-border-radius: 5px;
-              border-radius: 5px
+              border-radius: 5px;
+              -moz-box-shadow: inset 2px 0px 75px 20px #e0d0d0;
+              -webkit-box-shadow: inset 2px 0px 75px 20px #e0d0d0;
+              box-shadow: inset 2px 0px 75px 20px #e0d0d0;
+              filter: drop-shadow(3px 4px 5px #CCC);
             }
 
             h2 {
               margin: 1px 5px;
+              font-size: 2.55em;
             }
           }
         }
+      }
+
+      div.range-area-class, div.agencies-area-class,
+      div.aboutAdiuva {
+        text-align: center;
+        padding: 30px 30px 100px 30px;
       }
     }
   }
@@ -230,17 +285,76 @@ margin: 0;
     }
 
     a:hover {
-      background: #fff;
-      color: #fff
+      background: rgb(190, 187, 187);
+      color: rgb(12, 10, 8)
     }
 
     div#app {
+      nav {
+        ul {
+          list-style: none;
+          padding-left: 8px;
+
+            li {
+              height: 0;
+              transition: all ease 0.5s;
+
+              a {
+                border-top-left-radius: 8px;
+                -moz-border-radius-topleft: 8px;
+                -webkit-border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                -moz-border-radius-topright: 8px;
+                -webkit-border-bottom-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                -moz-border-radius-bottomleft: 8px;
+                -webkit-border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                -moz-border-radius-bottomright: 8px;
+                -webkit-border-bottom-right-radius: 8px;
+                opacity: 0;
+                display: block;
+                padding: 0 8px;
+                font-size: 0;
+              }
+            }
+          }
+        }
+
+        nav.navIsExpanded {
+          ul {
+            list-style: none;
+            padding: 0 5px;
+
+            li {
+              min-height: 40px;
+
+              a {
+                color: #8E0000;
+                display: block;
+                font-size: 1em;
+                opacity: 1;
+                margin: 18px 0 2% 0;
+                font-weight: bold;
+                padding: 10px 8px;
+              }
+            }
+          }
+        }
+
+      div.mapClass {
+        div {
+          position: relative;
+          max-height: 190px;
+        }
+      }
+
 /***** Tripple Burger Styling for Mobile (hopefully veggie :-)~ ) *****/
       .burgerMenu {
         color: #C7C7C7;
         cursor: pointer;
-        width: 75px;
-        height: 55px;
+        width: 40px;
+        height: 45px;
         position:absolute;
         right: 6%;
         -moz-transition: all 0.5s ease;
@@ -252,7 +366,7 @@ margin: 0;
 
           div.tripleBurger1{
             width: 100%;
-            height: 6px;
+            height: 3px;
             background-color: #582727;
             position: relative;
             top: 0px;
@@ -261,23 +375,23 @@ margin: 0;
             transition: all 0.5s ease;
           }
 
-          div.tripleBurger2{
+          div.tripleBurger2 {
             width: 100%;
-            height: 6px;
+            height: 3px;
             background-color: #582727;
             position: relative;
-            top: 6px;
+            top: 8px;
             -moz-transition: all 0.5s ease;
             -webkit-transition: all 0.5s ease;
             transition: all 0.5s ease;
           }
 
-          div.tripleBurger3{
+          div.tripleBurger3 {
             width: 100%;
-            height: 6px;
+            height: 3px;
             background-color: #582727;
             position: relative;
-            top: 12px;
+            top: 17px;
             -moz-transition: all 0.5s ease;
             -webkit-transition: all 0.5s ease;
             transition: all 0.5s ease;
@@ -285,14 +399,15 @@ margin: 0;
         }
 
         .burgerMenu.menuIsExpanded {
-          div.tripleBurger1{
+          div.tripleBurger1 {
             -ms-transform: rotate(45deg); /* IE 9 */
             -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
             transform: rotate(45deg);
-            top: 20px
+            top: 16px;
+
           }
 
-          div.tripleBurger2{
+          div.tripleBurger2 {
             -ms-transform: rotate(90deg); /* IE 9 */
             -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
             transform: rotate(90deg);
@@ -300,7 +415,7 @@ margin: 0;
             opacity: 0;
           }
 
-          div.tripleBurger3{
+          div.tripleBurger3 {
             -ms-transform: rotate(-45deg); /* IE 9 */
             -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
             transform: rotate(-45deg);
@@ -308,27 +423,6 @@ margin: 0;
           }
         }
 /***** End Tripple Burger Time Styling for Mobile *****/
-      nav {
-          a {
-            font-size: 0em;  /* CHEAP way to rival a jQuery slider w/o jQuery  ***VERY*** crude, but oh soooo effective ;-) */
-            -moz-border-radius-bottomright: 5px;
-            -webkit-border-bottom-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-            -moz-border-radius-bottomleft: 5px;
-            -webkit-border-bottom-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-          }
-        }
-
-      nav.navIsExpanded {
-        a {
-          color: #8E0000;
-          display: block;
-          font-size: 1em;
-          margin: 18px 0 2% 1%;
-          font-weight: bold;
-        }
-      }
     }
   }
 /***** End Mobile Styling *****/
@@ -336,10 +430,16 @@ margin: 0;
 /***** Tablet Styling *****/
   @media(min-width: $tablet) {
     div#app {
+      div.mapClass {
+        div {
+          position: relative;
+          max-height: 260px;
+        }
+      }
   /***** Tripple Burger Styling for Tablet (hopefully veggie :-)~ ) *****/
       .burgerMenu {
         cursor: pointer;
-        width: 120px;
+        width: 90px;
         height: 90px;
         position:absolute;
         right: 6%;
@@ -351,7 +451,6 @@ margin: 0;
             background-color: #582727;
             position: relative;
             top: 15px;
-
           }
 
           div.tripleBurger2 {
@@ -372,7 +471,7 @@ margin: 0;
         }
 
       .burgerMenu.menuIsExpanded {
-        div.tripleBurger1{
+        div.tripleBurger1 {
           -ms-transform: rotate(45deg); /* IE 9 */
           -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
           transform: rotate(45deg);
@@ -395,36 +494,133 @@ margin: 0;
         }
       }
     /***** End Tripple Burger Time Styling for Tablet *****/
-      nav.navIsExpanded a {
-        color: #8E0000;
-        font-size: 1.5em;
-        margin: 20px 0 4% 1.7%;
+      nav.navIsExpanded {
+        ul {
+          li {
+            a {
+              color: #8E0000;
+              font-size: 1.88em;
+              margin: 37px 0;
+            }
+          }
         }
       }
     }
+  }
 /***** End Tablet Styling *****/
 
 /***** Desktop Styling *****/
   @media(min-width: $desktop) {
-    div#app div.container-fluid div { // <-- increase specificity
-      .burgerMenu {
-        display: none;
+    div#app {
+      nav, nav.navIsExpanded {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+
+        ul {
+          list-style: none;
+          margin: 0;
+
+          li {
+            display: inline-flex;
+            margin: 0 0 0 25px;
+            min-height: 52px;
+
+            a {
+              -moz-border-radius-topleft: 12px;
+              -webkit-border-top-left-radius: 12px;
+              border-top-left-radius: 12px;;
+              -moz-border-radius-topright: 12px;
+              -webkit-border-top-right-radius: 12px;
+              border-top-right-radius: 12px;
+              border-bottom-left-radius: 0;
+              -moz-border-radius-bottomleft: 0;
+              -webkit-border-bottom-left-radius: 0;
+              border-bottom-right-radius: 0;
+              -moz-border-radius-bottomright: 0;
+              -webkit-border-bottom-right-radius: 0;
+              opacity: 1;
+              color: #8E0000;
+              font-size: 1.7em;
+              margin: 0;
+              display: block;
+              padding: 12px 10px;
+            }
+          }
+        }
       }
 
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      flex-direction: row;
+      div.mapClass {
+        div {
+          position: relative;
+          max-height: 337px;
+        }
+      }
 
-        a {
-          color: #8E0000;
-          font-size: 1.7em;
-          margin: 0 0 0 4%;
-          display: block;
+    div.container-fluid div {
+      .burgerMenu {
+        display: none;
         }
       }
     }
   }
 /***** End Desktop Styling *****/
+
+/***** High Definition Desktop Styling *****/
+  @media(min-width: $desktop-high-def) {
+    div#app {
+      nav, nav.navIsExpanded {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+
+        ul {
+          list-style: none;
+          margin: 0;
+
+          li {
+            display: inline-flex;
+            margin: 0 0 0 42px;
+            min-height: 62px;
+
+            a {
+              -moz-border-radius-topleft: 20px;
+              -webkit-border-top-left-radius: 20px;
+              border-top-left-radius: 20px;
+              -moz-border-radius-topright: 20px;
+              -webkit-border-bottom-right-radius: 20px;
+              border-top-right-radius: 20px;
+              -moz-border-radius-bottomleft: 0;
+              -webkit-border-bottom-left-radius: 0;
+              border-bottom-left-radius: 0;
+              -moz-border-radius-bottomright: 0;
+              -webkit-border-bottom-right-radius: 0;
+              border-bottom-right-radius: 0;
+              color: #8E0000;
+              font-size: 2.2em;
+              margin: 0;
+              display: block;
+              opacity: 1;
+              padding: 18px 13px;
+            }
+          }
+        }
+      }
+
+      div.mapClass {
+        div {
+          position: relative;
+          max-height: 500px;
+        }
+      }
+
+    div.container-fluid div {
+      .burgerMenu {
+        display: none;
+        }
+      }
+    }
+  }
+/***** End High Definition Desktop Styling *****/
 }
 /***** End Aduiva Styling *****/
