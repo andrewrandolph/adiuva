@@ -12,7 +12,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="mapClass">
-        <Mapper distance={this.props.distance} agencies={this.props.agencies}/>
+        <Mapper className="actualMap" distance={this.props.distance} agencies={this.props.agencies}/>
       </div>
     );
   }

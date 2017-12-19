@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Review from '../Reviews/Review';
 
 class ListItemDetail extends React.Component {
   constructor(props, context) {
@@ -17,10 +18,7 @@ class ListItemDetail extends React.Component {
   }
 
   render() {
-    const {item, key} = this.props;
-    // const photos = item.photos;
-    // console.log(photos);
-    console.log(item);
+    const {item, item: {reviews}, key} = this.props;
     return (
       <li key={key}>
         <h2>{item && item.name}</h2>
@@ -31,8 +29,17 @@ class ListItemDetail extends React.Component {
         <br />
         <br />
         <h4 onClick={() => this.handleClick()} className={!this.state.toggled ? 'show' : 'hide'}>Show Reviews</h4>
-        <div className={this.state.toggled ? 'show' : 'hide'}>
-          <h4>Rating: {item.rating}</h4>
+        <div id="review" className={this.state.toggled ? 'show' : 'hide'}>
+          {reviews ? reviews.map(review => {
+            return (
+              review ?
+              <Review review={review}/>
+              :
+              <span></span>
+            );
+          })
+          :
+          null}
           <h4 onClick={() => this.handleClick()}>Hide Reviews</h4>
         </div>
       </li>
