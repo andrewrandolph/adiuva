@@ -162,6 +162,15 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
   margin: 0;
 
+  .show {
+    cursor: pointer;
+    max-height: 100%;
+  }
+
+  .hide {
+    display: none;
+  }
+
   .map-container {
     div {
       ul {
@@ -299,6 +308,10 @@ body {
             font-style: italic;
 
             li {
+              div {
+                max-height: 100%;
+              }
+
               background-color: #efe9e9;
               border: solid 1px #a2a2a2;
               color: #380101;
@@ -346,6 +359,12 @@ body {
 
 /***** Mobile Styling *****/
   @media(min-width: $mobile) and (max-width: $tablet) {
+
+    div#review {
+      .show > div {
+        max-height: 100%;
+      }
+    }
 
     .map-container {
       position: relative;
@@ -548,6 +567,7 @@ body {
         }
       }
 
+
       nav {
         ul {
           padding: 0 10px;
@@ -645,7 +665,15 @@ body {
           }
         }
       }
-      /***** Tripple Burger Styling for Tablet (hopefully veggie :-)~ ) *****/
+
+      div#review {
+        .show > div {
+          max-height: 100%;
+        }
+      }
+
+  /***** Tripple Burger Styling for Tablet (hopefully veggie :-)~ ) *****/
+
       .burgerMenu {
         color: #C7C7C7;
         cursor: pointer;
@@ -720,6 +748,13 @@ body {
 
 /***** Desktop Styling *****/
   @media(min-width: $desktop) {
+
+    div#review {
+      .show > div {
+        max-height: 100%;
+      }
+    }
+
     div#app {
       nav, nav.navIsExpanded {
         display: flex;

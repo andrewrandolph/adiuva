@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MapList from '../components/MapList';
+import MapList from '../components/MapList/MapList';
 import PropTypes from 'prop-types';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 
