@@ -6,6 +6,7 @@ const aboutAdiuvaApp = () => {
       <div className="aboutAdiuva">
       <br /><br />
         About Adiuva! - Coming soon...
+      <br /><br />
         <label className="switch">
         <input type="checkbox"></input>
         <span className="slider round"></span>
