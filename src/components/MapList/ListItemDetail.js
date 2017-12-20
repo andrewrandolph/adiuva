@@ -19,11 +19,12 @@ class ListItemDetail extends React.Component {
 
   render() {
     const {item, item: {reviews}, key} = this.props;
+    const phoneNumber = item && item.formatted_address ? `tel:${item.formatted_phone_number}` : '';
     return (
       <li key={key}>
         <h2>{item && item.name}</h2>
         <h3>{item && item.formatted_address}</h3>
-        <a href={item && item.formatted_phone_number}>{item && item.formatted_phone_number}</a>
+        <a className="telephone" href={phoneNumber}>{item && item.formatted_phone_number}</a>
         <br />
         <a href={item && item.website}>{item && item.website}</a>
         <br />

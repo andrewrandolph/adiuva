@@ -1,13 +1,16 @@
 export default {
   agencies: [
     {
-      title: 'Hospitals'
+      title: 'Hospitals',
+      active: true
     },
     {
-      title: 'Food'
+      title: 'Food',
+      active: true
     },
     {
-      title: 'ER'
+      title: 'ER',
+      active: false
     }],
   distance: 500
 };

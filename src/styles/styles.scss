@@ -326,13 +326,19 @@ body {
               box-shadow: inset 2px 0px 75px 20px #e0d0d0;
               filter: drop-shadow(3px 4px 5px #CCC);
 
-              a:first-of-type::before {
+              a.telephone{
+                display: inline-block;
+              }
+
+              a.telephone::before {
                 background: url(../img/phone-icon.svg) no-repeat #4A0808;
                 background-size: cover;
                 border-radius: 30px;
                 content: '';
                 padding-left: 26px;
-                display: inline;
+                height: 25px;
+                width: 25px;
+                display: inline-block;
               }
             }
 
