@@ -11,14 +11,16 @@ class AgencyPage extends React.Component {
     this.state = {
       agency:
         {
-          title: ""
+          title: "",
+          active: true
         }
     };
 
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
-    this.onClickDelete = this.onClickDelete.bind(this);
+    // this.onClickDelete = this.onClickDelete.bind(this);
     this.agencyRow = this.agencyRow.bind(this);
+    this.toggleAgency = this.toggleAgency.bind(this);
   }
 
   onTitleChange(event) {
@@ -33,15 +35,27 @@ class AgencyPage extends React.Component {
     this.state.agency.title != '' ? this.props.actions.saveAgency(this.state.agency) : alert("Enter a place");
   }
 
-  onClickDelete(agencyTitle) {
-    this.props.actions.deleteAgency(agencyTitle);
+  toggleAgency(agency) {
+    const newAgency = agency;
+    newAgency.active = !agency.active;
+    newAgency.title = agency.title;
+    this.setState({
+      agency: newAgency
+    });
   }
+
+  // onClickDelete(agencyTitle) {
+  //   this.props.actions.deleteAgency(agencyTitle);
+  // }
 
   agencyRow(agency, index) {
     return (
       <div key={index}>
         <span>{agency.title}</span>
-        <button onClick={() => this.onClickDelete(agency.title)} className="btn btn-danger">Delete</button>
+        <label onChange={() => this.toggleAgency(agency)} className="switch">
+          <input checked={agency.active} type="checkbox"></input>
+          <span className="slider round"></span>
+        </label>
       </div>
     );
   }

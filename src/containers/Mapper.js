@@ -35,8 +35,9 @@ export class MapContainer extends Component {
     const {google, initialCenter: { lat, lng }} = mapProps;
     const {agencies, distance} = this.props;
     const service = new google.maps.places.PlacesService(map);
+    const searchableAgencies = agencies.filter(agency => agency.active === true);
 
-    agencies.forEach(agency => service.nearbySearch({location: {lat, lng}, radius: distance, keyword:agency.title}, (results, error) => {
+    searchableAgencies.forEach(agency => service.nearbySearch({location: {lat, lng}, radius: distance, keyword:agency.title}, (results, error) => {
       setTimeout(() => this.fetchDetails(results, error, service), 2000);
     }));
     //Added a comment to push branch

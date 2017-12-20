@@ -14,7 +14,7 @@ class MapList extends React.Component {
       {items.map((item, index) => {
         return (
           item ?
-          <ListItemDetail item={item} index={index} />
+          <ListItemDetail item={item} key={index} />
           :
           <span key={index}></span>
         );
