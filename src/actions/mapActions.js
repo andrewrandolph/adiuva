@@ -1,7 +1,7 @@
 import * as types from './actionTypes';
 
-export function generateMarkers(markers) {
-  return {type: types.GENERATE_MARKERS, markers};
+export function saveRange(distance) {
+  return {type: types.UPDATE_RANGE, distance};
 }
 
 export function toggleMenu(toggleState) {
