@@ -21,7 +21,6 @@ class Header extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <BurgerMenu className={this.state.menuIsEnabled ? "burgerMenu menuIsExpanded" : "burgerMenu"} onClick={this.handleBurgerClick} menuIsEnabled={this.state.menuIsEnabled}/>
