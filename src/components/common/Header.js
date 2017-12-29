@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import BurgerMenu from '../burgerMenu/BurgerMenu';
+import { connect } from 'react-redux';
 import { Link, IndexLink } from 'react-router';
 
 class Header extends Component {
@@ -20,6 +21,7 @@ class Header extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <BurgerMenu className={this.state.menuIsEnabled ? "burgerMenu menuIsExpanded" : "burgerMenu"} onClick={this.handleBurgerClick} menuIsEnabled={this.state.menuIsEnabled}/>
@@ -37,4 +39,10 @@ class Header extends Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state, ownProps) {
+  return {
+    toggled: ownProps.isMenuToggled
+  };
+}
+
+export default connect(mapStateToProps)(Header);
