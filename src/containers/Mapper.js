@@ -120,7 +120,7 @@ MapContainer.propTypes = {
   google: PropTypes.object.isRequired,
   agencies: PropTypes.array,
   distance: PropTypes.number,
-  zoom: PropTypes.function
+  zoom: PropTypes.func
 };
 
 export default GoogleApiWrapper({

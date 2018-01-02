@@ -12,8 +12,8 @@ const BurgerMenu = ({menuIsEnabled, onClick}) => {
 };
 
 BurgerMenu.propTypes = {
-  menuIsEnabled: PropTypes.boolean,
-  onClick: PropTypes.function
+  menuIsEnabled: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 export default BurgerMenu;

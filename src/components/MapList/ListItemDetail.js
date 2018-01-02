@@ -18,10 +18,10 @@ class ListItemDetail extends React.Component {
   }
 
   render() {
-    const {item, item: {reviews}, key} = this.props;
+    const {item, item: {reviews, id}} = this.props;
     const phoneNumber = item && item.formatted_address ? `tel:${item.formatted_phone_number}` : '';
     return (
-      <li key={key}>
+      <li key={id}>
         <h2>{item && item.name}</h2>
         <h3>{item && item.formatted_address}</h3>
         <a className="telephone" href={phoneNumber}>{item && item.formatted_phone_number}</a>
@@ -34,7 +34,7 @@ class ListItemDetail extends React.Component {
           {reviews ? reviews.map(review => {
             return (
               review ?
-              <Review review={review}/>
+              <Review review={review} key={review.time}/>
               :
               <span></span>
             );
