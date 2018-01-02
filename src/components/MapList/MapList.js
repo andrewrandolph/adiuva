@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import ListItemDetail from './ListItemDetail';
 
 class MapList extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
 
   render() {
     const items = this.props && this.props.items;

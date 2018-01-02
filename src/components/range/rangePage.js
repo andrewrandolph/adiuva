@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux';
 import * as mapActions from '../../actions/mapActions';
 
 class rangePage extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
 
     this.state = {
       distance: ''

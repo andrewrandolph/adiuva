@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Review from '../Reviews/Review';
 
 class ListItemDetail extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       toggled: false
     };

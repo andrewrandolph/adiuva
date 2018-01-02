@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Review extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
   render() {
     const review = this.props && this.props.review;
     return (

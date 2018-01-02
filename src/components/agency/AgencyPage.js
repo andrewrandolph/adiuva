@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux';
 import * as courseActions from '../../actions/courseActions';
 
 class AgencyPage extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
 
     this.state = {
       agency:
@@ -52,8 +52,8 @@ class AgencyPage extends React.Component {
     return (
       <div key={index}>
         <span>{agency.title}</span>
-        <label onChange={() => this.toggleAgency(agency)} className="switch">
-          <input checked={agency.active} type="checkbox"></input>
+        <label className="switch">
+          <input checked={agency.active} onChange={() => this.toggleAgency(agency)} type="checkbox"></input>
           <span className="slider round"></span>
         </label>
       </div>
