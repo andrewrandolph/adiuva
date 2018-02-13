@@ -98,10 +98,10 @@
   position: absolute;
   content: "OFF";
   color: #fff;
-  height: 60px;
+  height: 49px;
   width: 60px;
   left: 0;
-  bottom: -15px;
+  bottom: -19px;
   background-color: #9D0320;
   -moz-transition: all .4s ease;
   -webkit-transition: all .4s ease;
@@ -189,8 +189,8 @@ $desktop-high-def: 1800px;
 
 @mixin default-button {
   color: #fff;
-  background: rgb(82, 10, 10);
-  background-color: rgb(53, 6, 6);
+  background: #520a0a;
+  background-color: #350606;
   cursor: pointer;
   display: inline-block;
   font-weight: 400;
@@ -204,10 +204,10 @@ $desktop-high-def: 1800px;
   border: 1px solid transparent;
   padding: .375rem .75rem;
   font-size: 1.5rem;
-  line-height: 1.5;
-  border-radius: .25rem;
+  line-height: 1;
+  border-radius: .45rem;
   transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  padding-top: 30px;
+  padding: 10px;
 }
 
 button, .btn {
@@ -308,6 +308,7 @@ body {
 
     input {
       margin-left: 15px;
+      padding: 9px;
     }
   }
 
@@ -342,7 +343,7 @@ body {
 
     div {
       span {
-        font-size: 3em;
+        // font-size: 3em;
         vertical-align: text-bottom;
       }
 
@@ -590,13 +591,21 @@ body {
         div {
           position: relative;
           max-height: 190px;
+
+          div {
+            div {
+              ul {
+                li {
+                  text-align: center;
+                }
+              }
+            }
+          }
         }
       }
 
       ul {
         li {
-            text-align: center;
-
           a {
             font-size: 1.3em;
             line-height: 1.59em;
@@ -1199,19 +1208,19 @@ body {
           a.telephone {
             float: right;
             position: relative;
-            bottom: 15px;
+            bottom: 5px;
             right: 10px;
             color: #4a070a;
             font-size: 1.77em;
             text-decoration: none;
-            padding: 57px 85px 26px 0;
+            padding: 49px 85px 10px 0;
           }
 
           a.telephone::before {
             background: url(../img/phone-icon.svg) no-repeat #4A0808;
-            background-size: cover;
+            background-size: contain;
             content: '';
-            padding-left: 26px;
+            padding-left: 3px;
             height: 80px;
             width: 80px;
             display: inline-block;
@@ -1225,7 +1234,7 @@ body {
 
           a.telephone:hover::before {
             background: url(../img/phone-icon.svg) no-repeat #0ac419;
-            background-size: cover;
+            background-size: contain;
             content: '';
             height: 80px;
             width: 80px;
@@ -1233,7 +1242,7 @@ body {
 
           a.telephone:active::before {
             background: url(../img/phone-icon.svg) no-repeat #50db00;
-            background-size: cover;
+            background-size: contain;
             content: '';
             height: 80px;
             width: 80px;
@@ -1423,9 +1432,9 @@ body {
 
                 a.telephone::before {
                   background: url(../img/phone-icon.svg) no-repeat #4A0808;
-                  background-size: cover;
+                  background-size: contain;
                   content: '';
-                  padding-left: 26px;
+                  padding-left: 10px;
                   height: 100px;
                   width: 100px;
                   display: inline-block;
@@ -1439,7 +1448,7 @@ body {
 
                 a.telephone:hover::before {
                   background: url(../img/phone-icon.svg) no-repeat #0ac419;
-                  background-size: cover;
+                  background-size: contain;
                   content: '';
                   height: 100px;
                   width: 100px;
@@ -1447,7 +1456,7 @@ body {
 
                 a.telephone:active::before {
                   background: url(../img/phone-icon.svg) no-repeat #50db00;
-                  background-size: cover;
+                  background-size: contain;
                   content: '';
                   height: 100px;
                   width: 100px;

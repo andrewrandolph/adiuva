@@ -26,7 +26,7 @@ class ListItemDetail extends React.Component {
         <h3>{item && item.formatted_address}</h3>
         <a className="telephone" href={phoneNumber}>{item && item.formatted_phone_number}</a>
         <br />
-        <a href={item && item.website}>{item && item.website}</a>
+        <a href={item && item.website}>Visit Website</a>
         <br />
         <br />
         <h4 onClick={() => this.handleClick()} className={!this.state.toggled ? 'show' : 'hide'}>Show Reviews</h4>
